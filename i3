@@ -1,1 +1,0 @@
-/home/jenbi/.config/i3
