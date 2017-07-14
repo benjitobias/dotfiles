@@ -1,0 +1,252 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+
+##########
+# Setup
+##########
+
+# Set mod key to winkey
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Monitors
+set $left-monitor "HDMI1"
+set $right-monitor "VGA1"
+
+
+##########
+# Design
+##########
+
+# Colours
+set $bg-color             #2f343f
+set $inactive-bg-color    #2f343f
+set $text-color           #9575cd
+set $inactive-text-color  #676e7d
+set $urgent-bg-color      #e53935
+
+# Window coloursR
+#                        border             background         text                 indicator
+client.focused           $bg-color          $bg-color          $text-color          #00ff00
+client.unfocused         $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive  $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent            $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# font pango:monospace 8
+font pango: System San Francisco Display 10
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 8
+
+
+##########
+# Workspaces
+##########
+
+# Setup workspaces
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+
+# Program to workspace
+# assign [class="Google-chrome"] $workspace2
+# assign [class="vlc"] $workspace10
+assign [class="Vmplayer"] $workspace10
+
+# Workspace to monitor
+workspace $workspace1 output $left-monitor
+workspace $workspace2 output $right-monitor
+workspace $workspace3 output $left-monitor
+workspace $workspace4 output $right-monitor
+workspace $workspace5 output $left-monitor
+workspace $workspace6 output $right-monitor
+workspace $workspace7 output $left-monitor
+workspace $workspace8 output $right-monitor
+workspace $workspace9 output $left-monitor
+workspace $workspace10 output $right-monitor
+
+
+##########
+# Key bindings
+##########
+
+# Switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# Start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Focus the child container
+bindsym $mod+c focus child
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Lock screen
+bindsym $mod+shift+l exec i3lock --color "$bg-color"
+#bindsym $mod+shift+x exec i3lock --color 475263
+#bindsym $mod+shift+x exec /home/jenbi/.config/i3/scripts/lock_screen.h
+
+# Start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+
+# Start rofi
+bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#00ff00" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show run -lines 15 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+
+# Change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+up move up
+bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+q layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        # status_command i3status
+        position top
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        tray_output primary
+        colors {
+            background $bg-color
+            separator #757575
+            #                     border             background         text
+            focused_workspace     $bg-color          $bg-color          $text-color
+            inactive_workspace    $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace      $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+}
+
+
+# explorer
+bindsym $mod+e exec thunar
+
+# Toggle mute
+bindsym $mod+m exec pactl set-sink-mute 0 toggle
+
+# screenshot
+bindsym $mod+shift+s exec screengrab -r
+
+# chrome
+bindsym $mod+shift+g exec google-chrome
+
+# Hibernate
+bindsym $mod+Shift+h exec systemctl suspend
+
+##########
+# Graphics
+##########
+
+# Screen layout
+workspace $workspace1 output $left-monitor
+
+# Opacity
+exec_always --no-startup-id compton -f
+
+# Display config
+exec_always xrandr --output $left-monitor --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output $right-monitor --mode 1280x1024 --pos 1920x0 --rotate normal
+
+# Opacity
+exec --no-startup-id compton -f
+
+# Wallpapers
+exec_always --no-startup-id feh --bg-scale /home/jenbi/Pictures/Wallpapers/cunt_destroyer.jpg --bg-scale /home/jenbi/Pictures/Wallpapers/jews_are_the_worst.jpg
