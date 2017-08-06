@@ -10,12 +10,20 @@
 set exrc
 set secure
 
+" syntax
+"set syntax=on
+
 " colorscheme
 "colorscheme darkblue
+syntax enable
 colorscheme monokai
 
-" syntax
-set syntax=on
+" indentation
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+set backspace=indent,eol,start
 
 " makefiles
 :autocmd FileType make set noexpandtab
@@ -54,3 +62,4 @@ autocmd FileType c
     \ 
     \ | filetype plugin indent on
     \ | highlight ColorColumn ctermbg=darkgray
+

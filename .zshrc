@@ -68,3 +68,6 @@ alias i3config='vim ~/.config/i3/config'
 alias sshpi='ssh pi@pi'
 alias sshdev='ssh jenbi@dev'
 alias eud='cd ~/Learning/kernel_dev/Eudyptula'
+
+# env variables
+export MINICOM="-m -c on"
