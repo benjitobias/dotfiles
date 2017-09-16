@@ -1,9 +1,24 @@
-" tabs
+" Vundle
+set nocompatible
+filetype off 
 
-"set expandtab
-"set tabstop=4
-"set softtabstop=4
-"set shiftwidth=4
+" Set runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'git://github.com/xolox/vim-misc.git'
+Plugin 'git://github.com/xolox/vim-notes.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
 
 " use .vimrc in working directory if exists
 " and use secure options

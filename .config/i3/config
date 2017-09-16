@@ -232,6 +232,13 @@ bindsym $mod+shift+g exec google-chrome
 # Hibernate
 bindsym $mod+Shift+h exec systemctl suspend
 
+# Sublime
+bindsym $mod+Shift+st exec /opt/sublime_text/sublime
+
+# Pycharm
+bindsym $mod+Shift+pc /opt/pycharm-community-2017.2.2/bin/pycharm.sh
+
+
 ##########
 # Graphics
 ##########

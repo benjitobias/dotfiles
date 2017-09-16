@@ -68,6 +68,13 @@ alias i3config='vim ~/.config/i3/config'
 alias sshpi='ssh pi@pi'
 alias sshdev='ssh jenbi@dev'
 alias eud='cd ~/Learning/kernel_dev/Eudyptula'
+# setup virtualenvwrapper
+alias setupvenv="source /usr/local/bin/virtualenvwrapper.sh"
 
 # env variables
 export MINICOM="-m -c on"
+export WORKON_HOME=~/.envs
+
+
+
+PATH=$PATH:/home/jenbi/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 B641F44D-F0EF-F343-57E4-CE0F0E7E0CDF
