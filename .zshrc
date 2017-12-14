@@ -70,6 +70,8 @@ alias sshdev='ssh jenbi@dev'
 alias eud='cd ~/Learning/kernel_dev/Eudyptula'
 # setup virtualenvwrapper
 alias setupvenv="source /usr/local/bin/virtualenvwrapper.sh"
+# start gdb without annoying text
+alias gdb="gdb -q"
 
 # env variables
 export MINICOM="-m -c on"
