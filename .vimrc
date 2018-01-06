@@ -51,9 +51,9 @@ set incsearch
 set hlsearch
 
 " Vim as sublime (powerline)
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Keep status bar visible and positioned
 set laststatus=2
